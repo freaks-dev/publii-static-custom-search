@@ -29,7 +29,8 @@ class StaticCustomSearchPlugin {
                         name="${this.config.searchParam}"
                         placeholder="${this.config.searchPlaceholder}" 
                         aria-label="${this.config.searchPlaceholder}"
-                        ${searchAutofocus}/>
+                        ${searchAutofocus}
+						required/>
 						<button type="submit" class="search__button"><span>
 						  ${this.config.searchSubmitLabel}</span>
 						</button>
@@ -53,7 +54,8 @@ class StaticCustomSearchPlugin {
 					type="search"
 					name="${this.config.searchParam}"
 					placeholder="${this.config.searchPlaceholder}"
-					class="search-page-input"/>
+					class="search-page-input"
+					required/>
 					<button type="submit" class="search-page-button"><span>
 					  ${this.config.searchSubmitLabel}</span>
 					</button>

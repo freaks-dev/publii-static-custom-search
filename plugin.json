@@ -3,7 +3,7 @@
     "description": "This plugin provides website owners with an easy way to add a static search functionality to their site. By leveraging the feed.json and js-search javascript library, this plugin offers a fast and reliable search experience for users, without the need for a dynamic search engine. With this plugin, site owners can quickly and easily improve the user experience and help visitors find the information they need.",
     "license": "GPL-3.0",
     "author": "freaks-dev",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "scope": "site",
     "minimumPubliiVersion": "0.40.0",
     "usePluginSettingsView": false,
