@@ -1,3 +1,5 @@
+![Screenshot from 2023-07-01 21-44-34](https://github.com/freaks-dev/publii-static-custom-search/assets/76874370/b3a32546-6e52-4166-b90c-047dfbaf65f5)
+
 # Static Custom Search
 Static Custom Search is a plugin for Publii, a static site generator. With this plugin, site owners can easily add a static search functionality to their website, without the need for a dynamic search engine. By leveraging the feed.json and javascript, Static Custom Search offers a fast and reliable search experience for users.
 
