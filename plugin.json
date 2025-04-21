@@ -1,20 +1,15 @@
 {
-    "name": "Static Fuzzy Search",
-    "description": "This plugin provides website owners with an easy way to add a fuzzy search functionality to their site. By leveraging the feed.json and fuse.js javascript library, this plugin offers a fast and reliable search experience for users, without the need for a dynamic search engine. With this plugin, site owners can quickly and easily improve the user experience and help visitors find the information they need.",
+    "name": "Static Custom Search",
+    "description": "This plugin provides website owners with an easy way to add a static search functionality to their site. By leveraging the feed.json and js-search javascript library, this plugin offers a fast and reliable search experience for users, without the need for a dynamic search engine. With this plugin, site owners can quickly and easily improve the user experience and help visitors find the information they need.",
     "license": "GPL-3.0",
     "author": "freaks-dev",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "scope": "site",
-    "minimumPubliiVersion": "0.44.0",
+    "minimumPubliiVersion": "0.40.0",
     "usePluginSettingsView": false,
-    "assets": {
-		"front": [
-			"fuse.js"	
-		]
-	},
     "messageInOptions": {
-        "type": "alert",
-        "text": "This is a third-party plugin and is not affiliated with Publii or Fuse.js. The search functionality in this plugin is powered by <a href=\"https://www.fusejs.io\"> Fuse.js </a>, a lightweight JavaScript library that enables fuzzy searching.\n\nThe Fuse.js script is bundled within the plugin itself, meaning it is hosted alongside your website and no external requests are made.\n\nBefore adjusting any search settings, please refer to the official <a href=\"https://www.fusejs.io/\">Fuse.js documentation</a> to understand the available configuration options.\n\n⚙️ Setup Requirements:\n- Ensure that both \"Search\" and \"Search subpage\" options are enabled in your Theme settings under the Search tab.\n- Also, enable JSON Feed in Site Settings under the RSS/JSON Feed section.\n\nWithout these settings enabled, the search feature will not function."
+        "type": "info",
+        "text": "To enable the search feature, please make sure that both 'Search' and 'Search subpage' options are enabled in the Theme settings under the Search tab. Additionally, ensure that JSON Feed is enabled in the Site Settings under the RSS/JSON Feed. Without these settings enabled, the search feature may not work properly."
     },
     "requiredFeatures": ["customSearch"],
     "config": [
@@ -35,6 +30,14 @@
             "type": "text"
         },
         {
+            "name": "searchAutofocus",
+            "label": "Autofocus",
+            "group": "Theme integration",
+            "note": "When enabled, the autofocus attribute will be added to the input field to tell the browser to focus on this field when the page loads.",
+            "value": true,
+            "type": "checkbox"
+        },
+        {
             "name": "searchPlaceholder",
             "label": "Input placeholder",
             "note": "",
@@ -43,206 +46,12 @@
             "type": "text"
         },
         {
-            "name": "isCaseSensitive",
-            "label": "isCaseSensitive",
-            "note": "Indicates whether comparisons should be case sensitive",
-            "group": "Fuse.js Options",
-            "value": "false",
-            "type": "select",
-            "options": [
-              {
-                "label": "True",
-                "value": "true"
-              },
-              {
-                "label": "False",
-                "value": "false"
-              }
-            ]
-        },
-        {
-            "name": "ignoreDiacritics",
-            "label": "ignoreDiacritics",
-            "note": "Indicates whether comparisons should ignore diacritics (accents)",
-            "group": "Fuse.js Options",
-            "value": "false",
-            "type": "select",
-            "options": [
-              {
-                "label": "True",
-                "value": "true"
-              },
-              {
-                "label": "False",
-                "value": "false"
-              }
-            ]
-        },
-        {
-            "name": "includeScore",
-            "label": "includeScore",
-            "note": "Whether the score should be included in the result set. A score of 0indicates a perfect match, while a score of 1 indicates a complete mismatch",
-            "group": "Fuse.js Options",
-            "value": "true",
-            "type": "select",
-            "options": [
-              {
-                "label": "True",
-                "value": "true"
-              },
-              {
-                "label": "False",
-                "value": "false"
-              }
-            ]
-        },
-        {
-            "name": "includeMatches",
-            "label": "includeMatches",
-            "note": "Whether the matches should be included in the result set. When true, each record in the result set will include the indices of the matched characters. These can consequently be used for highlighting purposes",
-            "group": "Fuse.js Options",
-            "value": "true",
-            "type": "select",
-            "options": [
-              {
-                "label": "True",
-                "value": "true"
-              },
-              {
-                "label": "False",
-                "value": "false"
-              }
-            ]
-        },
-        {
-            "name": "minMatchCharLength",
-            "label": "minMatchCharLength",
-            "note": "Only the matches whose length exceeds this value will be returned. (For instance, if you want to ignore single character matches in the result, set it to 2)",
-            "group": "Fuse.js Options",
-            "type": "number",
-            "value": "2"
-        },
-        {
-            "name": "location",
-            "label": "location",
-            "note": "Determines approximately where in the text is the pattern expected to be found",
-            "group": "Fuse.js Options",
-            "type": "number",
-            "value": "0"
-        },
-        {
-            "name": "threshold",
-            "label": "threshold",
-            "note": "At what point does the match algorithm give up. A threshold of 0.0 requires a perfect match (of both letters and location), a threshold of 1.0 would match anything",
-            "group": "Fuse.js Options",
-            "type": "number",
-            "value": "0.6"
-        },
-        {
-            "name": "distance",
-            "label": "distance",
-            "note": "Determines how close the match must be to the fuzzy location (specified by location). An exact letter match which is distance characters away from the fuzzy location would score as a complete mismatch. A distance of 0 requires the match be at the exact location specified. A distance of 1000 would require a perfect match to be within 800 characters of the location to be found using a threshold of 0.8",
-            "group": "Fuse.js Options",
-            "type": "number",
-            "value": "100"
-        },
-        {
-            "name": "shouldSort",
-            "label": "shouldSort",
-            "note": "Whether to sort the result list, by score",
-            "group": "Fuse.js Options",
-            "value": "true",
-            "type": "select",
-            "options": [
-              {
-                "label": "True",
-                "value": "true"
-              },
-              {
-                "label": "False",
-                "value": "false"
-              }
-            ]
-        },
-        {
-            "name": "findAllMatches",
-            "label": "findAllMatches",
-            "note": "When true, the matching function will continue to the end of a search pattern even if a perfect match has already been located in the string",
-            "group": "Fuse.js Options",
-            "value": "false",
-            "type": "select",
-            "options": [
-              {
-                "label": "True",
-                "value": "true"
-              },
-              {
-                "label": "False",
-                "value": "false"
-              }
-            ]
-        },
-        {
-            "name": "ignoreLocation",
-            "label": "ignoreLocation",
-            "note": "When true, search will ignore location and distance, so it won't matter where in the string the pattern appears.\n The default options only search the first 60 characters. This should suffice if it is reasonably expected that the match is within this range. To modify this behavior, set the appropriate combination of location, threshold, distance (or ignoreLocation). To better understand how these options work together, read <a href=\"https://www.fusejs.io/concepts/scoring-theory.html#scoring-theory\">Fuse.js Scoring Theory</a>",
-            "group": "Fuse.js Options",
-            "value": "false",
-            "type": "select",
-            "options": [
-              {
-                "label": "True",
-                "value": "true"
-              },
-              {
-                "label": "False",
-                "value": "false"
-              }
-            ]
-        },
-        {
-            "name": "useExtendedSearch",
-            "label": "useExtendedSearch",
-            "note": "When true, it enables the use of unix-like search commands. See <a href=\"https://www.fusejs.io/examples.html#extended-search\">example</a>",
-            "group": "Fuse.js Options",
-            "value": "false",
-            "type": "select",
-            "options": [
-              {
-                "label": "True",
-                "value": "true"
-              },
-              {
-                "label": "False",
-                "value": "false"
-              }
-            ]
-        },
-        {
-            "name": "ignoreFieldNorm",
-            "label": "ignoreFieldNorm",
-            "note": "When true, the calculation for the relevance score (used for sorting) will ignore the <a href=\"https://www.fusejs.io/concepts/scoring-theory.html#fuzziness-score\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">field-length norm</a>",
-            "group": "Fuse.js Options",
-            "value": "false",
-            "type": "select",
-            "options": [
-              {
-                "label": "True",
-                "value": "true"
-              },
-              {
-                "label": "False",
-                "value": "false"
-              }
-            ]
-        },
-        {
-            "name": "fieldNormWeight",
-            "label": "fieldNormWeight",
-            "note": "Determines how much the field-length norm affects scoring. A value of 0 is equivalent to ignoring the field-length norm. A value of 0.5 will greatly reduce the effect of <a href=\"https://www.fusejs.io/concepts/scoring-theory.html#field-length-norm\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">field-length norm</a>, while a value of 2.0 will greatly increase it",
-            "group": "Fuse.js Options",
-            "type": "number",
-            "value": "1"
-        }
+            "name": "searchSubmitLabel",
+            "label": "Submit button label",
+            "note": "",
+            "group": "Theme integration",
+            "value": "Submit",
+            "type": "text"
+        }  
     ]
 }
