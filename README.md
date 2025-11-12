@@ -1,3 +1,8 @@
+The repository has not been updated in some time. It is recommended to use the other search plugin as that has more advanced features and nuanced customization compared to this plugin. 
+https://github.com/Prashantpathak5022/publii-fuzzy-search (different publisher)
+OR
+https://github.com/freaks-dev/publii-fuzzy-search-fork (same developer)
+
 ![Screenshot from 2023-07-01 21-44-34](https://github.com/freaks-dev/publii-static-custom-search/assets/76874370/b3a32546-6e52-4166-b90c-047dfbaf65f5)
 
 # Static Custom Search
